@@ -5,7 +5,21 @@ const store = useUsersStore();
 </script>
 
 <template>
-  <UserTableRow v-for="user in store.users" :user=user />
+  <table>
+    <thead>
+    <tr>
+      <th></th>
+      <th>NOM</th>
+      <th>MÉTIER</th>
+      <th>EMAIL</th>
+      <th>TELEPHONE</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+      <UserTableRow v-for="user in store.users" :user=user />
+    </tbody>
+  </table>
 </template>
 
 <style scoped>

@@ -26,7 +26,9 @@ export async function addUser(user: User) {
 
 export async function deleteUser(id: string) {
     try {
-        await fetch(`${apiUrl}/users/${id}`);
+        await fetch(`${apiUrl}/users/${id}`, {
+            method: 'DELETE',
+        });
     } catch (error) {
         console.error('Error deleting user:', error);
         throw error;
