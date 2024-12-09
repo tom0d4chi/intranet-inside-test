@@ -1,5 +1,19 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { onMounted } from 'vue'
+import { fetchAllUsers, addUser } from "../services/usersService.ts";
+
+onMounted(async () => {
+  const users = await fetchAllUsers();
+  await addUser({
+    name: 'Anis',
+    email: 'anis@gmail.com',
+    job: 'Developer',
+    phone: '0123456789',
+  })
+
+  console.log('users', users)
+})
 
 defineProps<{ msg: string }>()
 
