@@ -1,5 +1,3 @@
-import {User} from "../types.ts";
-
 const apiUrl = import.meta.env.VITE_API_URL;
 
 export async function fetchAllUsers() {
@@ -12,11 +10,15 @@ export async function fetchAllUsers() {
     }
 }
 
-export async function addUser(user: User) {
+export async function addUser(userName: string) {
     try{
-        await fetch(`${apiUrl}/users`, {
+        return await fetch(`${apiUrl}/users`, {
             method: 'POST',
-            body: JSON.stringify(user),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name: userName}),
         });
     } catch (error) {
         console.error('Error uploading user:', error);

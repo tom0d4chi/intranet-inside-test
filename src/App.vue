@@ -8,7 +8,6 @@
 
   onMounted(async () => {
     store.users = await fetchAllUsers();
-    console.log(store.users)
   })
 </script>
 

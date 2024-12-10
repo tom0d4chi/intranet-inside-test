@@ -13,7 +13,6 @@ defineProps<{
 const handleDelete = async (userId: string) => {
   store.users = store.users.filter(user => user.id !== userId)
   await deleteUser(userId);
-  console.log("user deleted")
 }
 
 </script>
